@@ -1,0 +1,21 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<p><h4>{{teclado.titulo}}</h4></p>
+{% if teclado.imagenInstrumento %}
+    <p><img src="{{teclado.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{teclado.marca}}</p>
+<p>Modelo: {{teclado.modelo}}</p>
+<p>Descripción: {{teclado.descripcion}}</p>
+<p>Año: {{teclado.year}}</p>
+<p>Precio(US$): {{teclado.precio}}</p>
+<p>Teléfono de Contacto: {{teclado.telefonoContacto}}</p>
+<p>Email de Contacto: {{teclado.emailContacto}}</p>
+
+</div>
+
+{% endblock %}

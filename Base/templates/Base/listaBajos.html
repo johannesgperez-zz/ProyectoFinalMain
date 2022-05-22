@@ -1,0 +1,30 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>Bajos</h1>
+
+</div>
+
+<div class="container">
+
+{% for bajo in bajos %}
+
+<ul>
+    <li>{{bajo.titulo}}</li>
+    <a href="{% url 'bajo' bajo.id %}">Ver</a>
+    {% if user.id == bajo.usuario.id %}
+    <a href="{% url 'bajo_editar' bajo.id %}">Editar</a>
+    <a href="{% url 'bajo_eliminar' bajo.id %}">Eliminar</a>
+    {% endif %}
+</ul>
+
+
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

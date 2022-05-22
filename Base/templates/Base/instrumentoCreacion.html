@@ -1,0 +1,20 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Agrega un nuevo instrumento</h1>
+<div class="form-group">
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Guardar">
+</form>
+</div>
+</div>
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("usuario_id").value = name;
+</script>
+
+{% endblock %}

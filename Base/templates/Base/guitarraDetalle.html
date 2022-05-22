@@ -1,0 +1,22 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<p><h4>{{guitarra.titulo}}</h4></p>
+
+{% if guitarra.imagenInstrumento %}
+    <p><img src="{{guitarra.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{guitarra.marca}}</p>
+<p>Modelo: {{guitarra.modelo}}</p>
+<p>Descripción: {{guitarra.descripcion}}</p>
+<p>Año: {{guitarra.year}}</p>
+<p>Precio(US$): {{guitarra.precio}}</p>
+<p>Teléfono de Contacto: {{guitarra.telefonoContacto}}</p>
+<p>Email de Contacto: {{guitarra.emailContacto}}</p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<p><h4>{{pedal.titulo}}</h4></p>
+{% if pedal.imagenInstrumento %}
+    <p><img src="{{pedal.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{pedal.marca}}</p>
+<p>Modelo: {{pedal.modelo}}</p>
+<p>Descripción: {{pedal.descripcion}}</p>
+<p>Año: {{pedal.year}}</p>
+<p>Precio(US$): {{pedal.precio}}</p>
+<p>Teléfono de Contacto: {{pedal.telefonoContacto}}</p>
+<p>Email de Contacto: {{pedal.emailContacto}}</p>
+
+</div>
+
+{% endblock %}

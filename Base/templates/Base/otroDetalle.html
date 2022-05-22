@@ -1,0 +1,21 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<p><h4>{{otro.titulo}}</h4></p>
+{% if otro.imagenInstrumento %}
+    <p><img src="{{otro.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{otro.marca}}</p>
+<p>Modelo: {{otro.modelo}}</p>
+<p>Descripción: {{otro.descripcion}}</p>
+<p>Año: {{otro.year}}</p>
+<p>Precio(US$): {{otro.precio}}</p>
+<p>Teléfono de Contacto: {{otro.telefonoContacto}}</p>
+<p>Email de Contacto: {{otro.emailContacto}}</p>
+
+</div>
+
+{% endblock %}

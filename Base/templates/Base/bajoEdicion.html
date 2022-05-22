@@ -1,0 +1,26 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+{% if user.id == bajo.usuario.id %}
+
+<div class="container">
+
+    <h4>Editar Bajo</h4>
+    
+</div>
+
+<div class="container">
+    <div class="form-group">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Guardar">
+        </form>
+    </div>
+</div>
+{% else %}
+<div class="container">
+<h4>No tienes acceso a esta pagina!</h4>
+</div>
+{% endif %}
+
+{% endblock %}

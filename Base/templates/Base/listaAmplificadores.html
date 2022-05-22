@@ -1,0 +1,28 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>Amplificadores</h1>
+
+</div>
+
+<div class="container">
+
+{% for amplificador in amplificadores %}
+
+<ul>
+    <li>{{amplificador.titulo}}</li>
+    <a href="{% url 'amplificador' amplificador.id %}">Ver</a>
+    {% if user.id == amplificador.usuario.id %}
+    <a href="{% url 'amplificador_editar' amplificador.id %}">Editar</a>
+    <a href="{% url 'amplificador_eliminar' amplificador.id %}">Eliminar</a>
+    {% endif %}
+</ul>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

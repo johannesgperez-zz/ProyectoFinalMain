@@ -1,0 +1,21 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<p><h4>{{amplificador.titulo}}</h4></p>
+{% if amplificador.imagenInstrumento %}
+    <p><img src="{{amplificador.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{amplificador.marca}}</p>
+<p>Modelo: {{amplificador.modelo}}</p>
+<p>Descripción: {{amplificador.descripcion}}</p>
+<p>Año: {{amplificador.year}}</p>
+<p>Precio(US$): {{amplificador.precio}}</p>
+<p>Teléfono de Contacto: {{amplificador.telefonoContacto}}</p>
+<p>Email de Contacto: {{amplificador.emailContacto}}</p>
+
+</div>
+
+{% endblock %}

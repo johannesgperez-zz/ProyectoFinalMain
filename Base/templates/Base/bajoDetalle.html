@@ -1,0 +1,21 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<p><h4>{{bajo.titulo}}</h4></p>
+{% if bajo.imagenInstrumento %}
+    <p><img src="{{bajo.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{bajo.marca}}</p>
+<p>Modelo: {{bajo.modelo}}</p>
+<p>Descripción: {{bajo.descripcion}}</p>
+<p>Año: {{bajo.year}}</p>
+<p>Precio(US$): {{bajo.precio}}</p>
+<p>Teléfono de Contacto: {{bajo.telefonoContacto}}</p>
+<p>Email de Contacto: {{bajo.emailContacto}}</p>
+
+</div>
+
+{% endblock %}

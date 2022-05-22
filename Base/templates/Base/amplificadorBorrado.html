@@ -1,0 +1,21 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+{% if user.id == amplificador.usuario.id %}
+<div class="container">
+
+<form method="post">{% csrf_token %}
+    Estás seguro que deseas borrar el amplificador {{amplificador.marca}} {{amplificador.modelo}} ?
+    <p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </p>
+</form>
+
+</div>
+{% else %}
+<div class="container">
+<h4>No tienes acceso a esta pagina!</h4>
+</div>
+{% endif %}
+
+{% endblock %}

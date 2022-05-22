@@ -1,0 +1,19 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Iniciar Sesión</h1>
+</div>
+
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Login">
+    </form>
+    <!-- <p>Olvidaste la contraseña? <a href="#">Haz click acá</a></p> -->
+    <p>Aun no tienes cuenta? <a href="{% url 'registro' %}">Crea una</a></p>
+</div>
+
+{% endblock %}

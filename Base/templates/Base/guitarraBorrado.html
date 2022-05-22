@@ -1,0 +1,22 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+{% if user.id == guitarra.usuario.id %}
+
+<div class="container">
+
+<form method="post">{% csrf_token %}
+    <h4>Estás seguro(a) que deseas borrar la guitarra {{guitarra.marca}} {{guitarra.modelo}} ?</h4>
+    <p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </p>
+</form>
+
+</div>
+{% else %}
+<div class="container">
+<h4>No tienes acceso a esta pagina!</h4>
+</div>
+{% endif %}
+
+{% endblock %}

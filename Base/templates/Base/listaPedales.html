@@ -1,0 +1,28 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>Pedales</h1>
+
+</div>
+
+<div class="container">
+
+{% for pedal in pedales %}
+
+<ul>
+    <li>{{pedal.titulo}}</li>
+    <a href="{% url 'pedal' pedal.id %}">Ver</a>
+    {% if user.id == pedal.usuario.id %}
+    <a href="{% url 'pedal_editar' pedal.id %}">Editar</a>
+    <a href="{% url 'pedal_eliminar' pedal.id %}">Eliminar</a>
+    {% endif %}
+</ul>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

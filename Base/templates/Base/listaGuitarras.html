@@ -1,0 +1,27 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>Guitarras</h1>
+
+</div>
+
+<div class="container">
+
+{% for guitarra in guitarras %}
+<ul>
+    <li>{{guitarra.titulo}}</li>
+    <a href="{% url 'guitarra' guitarra.id %}">Ver</a>
+    {% if user.id == guitarra.usuario.id %}
+        <a href="{% url 'guitarra_editar' guitarra.id %}">Editar</a>
+        <a href="{% url 'guitarra_eliminar' guitarra.id %}">Eliminar</a>
+    {% endif %}
+</ul>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

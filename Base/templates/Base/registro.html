@@ -1,0 +1,23 @@
+{% extends 'base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Registro</h1>
+</div>
+
+<div class="container">
+    <div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-secondary">Registar</button>
+    </form>
+    </div>
+    <br>
+    <div class="container">
+    <p>Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar Sesión</a></p>
+    </div>
+</div>
+
+{% endblock content %}

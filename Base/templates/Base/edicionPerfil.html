@@ -1,0 +1,22 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Editar Perfil</h1>
+</div>
+
+<div class="container">
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Actualizar">
+</form>
+
+<p>Necesitas cambiar la contraseña?<a href="{% url 'cambiar_password' %}">Haz click acá</a></p>
+
+
+
+</div>
+
+{% endblock %}

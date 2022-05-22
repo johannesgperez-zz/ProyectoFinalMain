@@ -1,0 +1,30 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>Baterias</h1>
+
+</div>
+
+<div class="container">
+
+{% for bateria in baterias %}
+
+<ul>
+    <li>{{bateria.titulo}}</li>
+    <a href="{% url 'bateria' bateria.id %}">Ver</a>
+    {% if user.id == bateria.usuario.id %}
+    <a href="{% url 'bateria_editar' bateria.id %}">Editar</a>
+    <a href="{% url 'bateria_eliminar' bateria.id %}">Eliminar</a>
+    {% endif %}
+</ul>
+
+
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

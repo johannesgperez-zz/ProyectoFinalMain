@@ -1,0 +1,22 @@
+{% extends 'Base/home.html' %}
+
+{% block content %}
+
+<div class="container">
+
+
+<p><h4>{{bateria.titulo}}</h4></p>
+{% if bateria.imagenInstrumento %}
+    <p><img src="{{bateria.imagenInstrumento.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{bateria.marca}}</p>
+<p>Modelo: {{bateria.modelo}}</p>
+<p>Descripción: {{bateria.descripcion}}</p>
+<p>Año: {{bateria.year}}</p>
+<p>Precio(US$): {{bateria.precio}}</p>
+<p>Teléfono de Contacto: {{bateria.telefonoContacto}}</p>
+<p>Email de Contacto: {{bateria.emailContacto}}</p>
+
+</div>
+
+{% endblock %}
