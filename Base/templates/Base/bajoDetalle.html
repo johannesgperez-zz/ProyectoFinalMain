@@ -18,4 +18,22 @@
 
 </div>
 
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not bajo.comentarios.all %}
+        No han comentado este instrumento
+    {% else %}
+        {% for comentario in bajo.comentarios.all %}
+        <p>Usuario: {{comentario.nombre}}</p>
+        <p>Mensaje:{{comentario.mensaje}}</p>
+        <p>Fecha del Mensaje: {{comentario.fechaComentario}}</p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' bajo.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+
 {% endblock %}

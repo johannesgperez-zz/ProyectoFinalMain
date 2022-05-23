@@ -1,8 +1,8 @@
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 
-from Base.models import Instrumento
+from Base.models import Instrumento, Comentario
 
 class FormularioRegistroUsuario(UserCreationForm):
     first_name = forms.CharField(max_length=20, label='Nombre', widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -61,4 +61,14 @@ class ActualizacionInstrumento(forms.ModelForm):
             'precio' : forms.TextInput(attrs={'class': 'form-control'}),
             'telefonoContacto' : forms.TextInput(attrs={'class': 'form-control'}),
             'emailContacto' : forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+class FormularioComentario(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ('nombre', 'mensaje', 'usuario')
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'usuario': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
+            'mensaje' : forms.Textarea(attrs={'class': 'form-control'}),
         }

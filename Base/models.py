@@ -24,6 +24,9 @@ class Instrumento(models.Model):
     emailContacto = models.EmailField()
     imagenInstrumento = models.ImageField(null=True, blank=True, upload_to="imagenes/")
 
+    class Meta:
+        ordering = ['-fechaPublicacion']
+
     def __str__(self):
         return self.titulo
 
@@ -31,4 +34,15 @@ class Avatar(models.Model):
     imagenAvatar = models.ImageField(null=True, blank=True, upload_to="imagenes/")
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
+class Comentario(models.Model):
+    comentario = models.ForeignKey(Instrumento, related_name='comentarios', on_delete=models.CASCADE, null=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    nombre = models.TextField(null=True, blank=True)
+    mensaje = models.TextField(null=True, blank=True)
+    fechaComentario = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-fechaComentario']
+
+    def __str__(self):
+        return '%s - %s' % (self.nombre, self.usuario)

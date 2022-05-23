@@ -1,25 +1,25 @@
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView 
 from django.contrib.auth.views import LoginView, PasswordChangeView
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from .models import Instrumento, Avatar
-from .forms import ActualizacionInstrumento, FormularioEdicion, FormularioNuevoInstrumento, FormularioRegistroUsuario
+from .models import Instrumento, Comentario
+from .forms import ActualizacionInstrumento, FormularioEdicion, FormularioNuevoInstrumento, FormularioRegistroUsuario, FormularioComentario
 
 
-# class HomeView(LoginRequiredMixin, TemplateView):
-#     template_name = 'Base/home.html'
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = 'Base/home.html'
 
-@login_required
-def inicio(request):
-    avatares = Avatar.objects.filter(usuario=request.user.id)
-    imagenAvatar = avatares[0].imagenAvatar.url
-    return render(request, "base/home.html", {'url': imagenAvatar})
+# @login_required
+# def inicio(request):
+#     avatares = Avatar.objects.filter(usuario=request.user.id)
+#     imagenAvatar = avatares[0].imagenAvatar.url
+#     return render(request, "base/home.html", {'url': imagenAvatar})
 
 class LoginPagina(LoginView):
     template_name = 'base/login.html'
@@ -253,6 +253,18 @@ class InstrumentoCreacion(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(InstrumentoCreacion, self).form_valid(form)
+
+# COMENTARIOS
+
+class ComentarioPagina(LoginRequiredMixin, CreateView):
+    model = Comentario
+    form_class = FormularioComentario
+    template_name = 'Base/comentario.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.comentario_id = self.kwargs['pk']
+        return super(ComentarioPagina, self).form_valid(form)
 
 
 # ACERCA DE MI

@@ -18,4 +18,22 @@
 
 </div>
 
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not amplificador.comentarios.all %}
+        No han comentado este instrumento
+    {% else %}
+        {% for comentario in amplificador.comentarios.all %}
+        <p>Usuario: {{comentario.nombre}}</p>
+        <p>Mensaje:{{comentario.mensaje}}</p>
+        <p>Fecha del Mensaje: {{comentario.fechaComentario}}</p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' amplificador.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+
 {% endblock %}

@@ -1,13 +1,13 @@
 from django import views
 from django.urls import path
-from .views import GuitarraDelete, InstrumentoCreacion, GuitarraDetalle, AmplificadorLista, TecladoLista, BateriaLista, BajoLista, GuitarraLista, PedalLista, OtroLista, BajoDetalle, PedalDetalle, AmplificadorDetalle, TecladoDetalle, BateriaDetalle, OtroDetalle, GuitarraUpdate, BajoUpdate, PedalUpdate, AmplificadorUpdate, TecladoUpdate, BateriaUpdate, OtroUpdate, BajoDelete, PedalDelete, AmplificadorDelete, TecladoDelete, BateriaDelete, OtroDelete, LoginPagina, RegistroPagina, UsuarioEdicion, CambioPassword
+from .views import GuitarraDelete, InstrumentoCreacion, GuitarraDetalle, AmplificadorLista, TecladoLista, BateriaLista, BajoLista, GuitarraLista, PedalLista, OtroLista, BajoDetalle, PedalDetalle, AmplificadorDetalle, TecladoDetalle, BateriaDetalle, OtroDetalle, GuitarraUpdate, BajoUpdate, PedalUpdate, AmplificadorUpdate, TecladoUpdate, BateriaUpdate, OtroUpdate, BajoDelete, PedalDelete, AmplificadorDelete, TecladoDelete, BateriaDelete, OtroDelete, LoginPagina, RegistroPagina, UsuarioEdicion, CambioPassword, HomeView, ComentarioPagina
 from django.contrib.auth.views import LogoutView
 from . import views
 
 
 urlpatterns = [
-    # path('', HomeView.as_view(), name='home'),
-    path('', views.inicio, name='home'),
+    path('', HomeView.as_view(), name='home'),
+    # path('', views.inicio, name='home'),
 
     path('login/', LoginPagina.as_view(), name='login'),
     path('logout/', LogoutView.as_view(template_name='base/logout.html'), name='logout'),
@@ -50,6 +50,14 @@ urlpatterns = [
     path('otroBorrado/<int:pk>/', OtroDelete.as_view(), name='otro_eliminar'),
 
     path('instrumentoCreacion/', InstrumentoCreacion.as_view(), name='nuevo'),
+
+    path('guitarraDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    path('bajoDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    path('pedalDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    path('amplificadorDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    path('bateriaDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    path('tecladoDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    path('otroDetalle/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
 
     path('acercaDeMi/', views.about, name='acerca_de_mi'),
 ]
