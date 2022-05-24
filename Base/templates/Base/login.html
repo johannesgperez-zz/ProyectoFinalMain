@@ -7,13 +7,45 @@
 </div>
 
 <div class="container">
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input class="button" type="submit" value="Login">
-    </form>
-    <!-- <p>Olvidaste la contraseña? <a href="#">Haz click acá</a></p> -->
-    <p>Aun no tienes cuenta? <a href="{% url 'registro' %}">Crea una</a></p>
+    
+        <!-- <form method="post">
+            <div class="form-group">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="button" class="btn btn-primary">Login</button>
+        </div>
+        </form> -->
+        <div id="content-container" class="container p-none">
+            <div class="col-sm-4">
+                <form id="login-form" method="post">
+                    {% csrf_token %}
+                    <table class="table">
+                        <tr>
+                            <td><label for="id_username">Usuario</label></td>
+                            <td><input id="id_username" name="username" 
+                                       type="text" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_password">Contraseña</label></td>
+                            <td><input id="id_password" name="password" 
+                                       type="password" class="form-control"></td>
+                        </tr>
+                    </table>
+                    {% if form.errors %}
+                        <p class="label label-danger">
+                            Tu usuario y contraseña no coinciden 
+                            Intenta nuevamente.
+                        </p>
+                    {% endif %}
+    
+                    <input type="submit" value="Login" 
+                           class="btn btn-primary pull-right" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </form>
+            </div>
+        </div>
+    <br>
+    <p>Aun no tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a></p>
 </div>
 
 {% endblock %}

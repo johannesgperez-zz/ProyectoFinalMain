@@ -66,9 +66,8 @@ class ActualizacionInstrumento(forms.ModelForm):
 class FormularioComentario(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ('nombre', 'mensaje', 'usuario')
+        fields = ('nombre', 'mensaje')
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'usuario': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
             'mensaje' : forms.Textarea(attrs={'class': 'form-control'}),
         }

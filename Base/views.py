@@ -15,12 +15,6 @@ from .forms import ActualizacionInstrumento, FormularioEdicion, FormularioNuevoI
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'Base/home.html'
 
-# @login_required
-# def inicio(request):
-#     avatares = Avatar.objects.filter(usuario=request.user.id)
-#     imagenAvatar = avatares[0].imagenAvatar.url
-#     return render(request, "base/home.html", {'url': imagenAvatar})
-
 class LoginPagina(LoginView):
     template_name = 'base/login.html'
     fields = '__all__'
@@ -32,7 +26,6 @@ class LoginPagina(LoginView):
 
 class RegistroPagina(FormView):
     template_name = 'base/registro.html'
-    #form_class = UserCreationForm
     form_class = FormularioRegistroUsuario
     redirect_autheticated_user = True
     success_url = reverse_lazy('home')
@@ -265,7 +258,6 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.comentario_id = self.kwargs['pk']
         return super(ComentarioPagina, self).form_valid(form)
-
 
 # ACERCA DE MI
 

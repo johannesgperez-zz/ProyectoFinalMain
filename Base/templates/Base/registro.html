@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <h1>Registro</h1>
+    <h1>Registro de Nuevo Usuario</h1>
 </div>
 
 <div class="container">
@@ -11,7 +11,7 @@
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit" class="btn btn-secondary">Registar</button>
+        <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
     </div>
     <br>

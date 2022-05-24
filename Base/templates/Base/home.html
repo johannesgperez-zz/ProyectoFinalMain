@@ -43,27 +43,26 @@
             </ul>
             {% if request.user.is_authenticated %}
             <ul>
-              <li>
-                <p style="color: white"> Hola {{request.user.first_name}}!</p>
+              <li class="nav-item">
+                <strong><span style="color:white"> Hola {{request.user.first_name}}!</span></strong>
               </li>
-              <li>
+            </ul>
+            <ul>
+              <li class="nav-item">
                 <a href="{% url 'editar_perfil' %}">Editar Perfil</a>
               </li>
-              <li>
+            </ul>
+            <ul>
+              <li class="nav-item">
                 <a href="{% url 'logout' %}">Cerrar Sesión</a>
               </li>
             </ul>
-            <ul>
-              <!-- <li>
-                <img class="rounded-circle" src="{{url}}" width=100 height=100 alt="">
-              </li> -->
-            </ul>
               {% else %}
             <ul>
-              <li>
+              <li class="nav-item">
                 <a href="{% url 'login' %}">Iniciar Sesión</a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a href="{% url 'registro' %}">Registrate</a>
               </li>
             </ul>
@@ -83,10 +82,10 @@
         <p><a href="{% url 'nuevo' %}">Agregalo acá:</a></p>
       </div>
       {% endblock %}
-      <footer class="bg-dark text-white pt-5 pb-4">
+      <!-- <footer class="bg-dark text-white pt-5 pb-4">
             <div class="container text-center">
                 <p>Made by Johannes Pérez</p>
             </div>
-      </footer>
+      </footer> -->
 </body>
 </html>

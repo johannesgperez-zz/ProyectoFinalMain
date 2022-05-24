@@ -25,19 +25,14 @@ class Instrumento(models.Model):
     imagenInstrumento = models.ImageField(null=True, blank=True, upload_to="imagenes/")
 
     class Meta:
-        ordering = ['-fechaPublicacion']
+        ordering = ['usuario', '-fechaPublicacion']
 
     def __str__(self):
         return self.titulo
 
-class Avatar(models.Model):
-    imagenAvatar = models.ImageField(null=True, blank=True, upload_to="imagenes/")
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-
 class Comentario(models.Model):
     comentario = models.ForeignKey(Instrumento, related_name='comentarios', on_delete=models.CASCADE, null=True)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    nombre = models.TextField(null=True, blank=True)
+    nombre = models.CharField(max_length=40)
     mensaje = models.TextField(null=True, blank=True)
     fechaComentario = models.DateTimeField(auto_now_add=True)
 
@@ -45,4 +40,4 @@ class Comentario(models.Model):
         ordering = ['-fechaComentario']
 
     def __str__(self):
-        return '%s - %s' % (self.nombre, self.usuario)
+        return '%s - %s' % (self.nombre, self.comentario)

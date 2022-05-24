@@ -18,7 +18,7 @@
 <p>Email de Contacto: {{guitarra.emailContacto}}</p>
 
 </div>
-
+<br>
 <div class="container">
     <h4>Comentarios...</h4>
     <br>
@@ -27,9 +27,9 @@
         No han comentado este instrumento
     {% else %}
         {% for comentario in guitarra.comentarios.all %}
-        <p>Usuario: {{comentario.nombre}}</p>
-        <p>Mensaje:{{comentario.mensaje}}</p>
-        <p>Fecha del Mensaje: {{comentario.fechaComentario}}</p>
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
         <hr>
         {% endfor %}
     {% endif %}
