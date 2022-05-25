@@ -18,7 +18,7 @@
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
                 <img src="{{bateria.imagenInstrumento.url}}" class="rounded-circle" width="100px">
-                {{bajo.titulo}}
+                {{bateria.titulo}}
                 <a href="{% url 'bateria' bateria.id %}">Ver</a>
                 {% if user.id == bateria.usuario.id %}
                 <a href="{% url 'bateria_editar' bateria.id %}">Editar</a>

@@ -1,5 +1,6 @@
-{% extends 'Base/home.html' %}
 
+{% extends 'Base/home.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -14,7 +15,7 @@
            <div class="col-md-6 col-lg-3">
                <div class="card bg-success">
                     <div class="card-body text-center">
-                        <img src="" class="rounded-circle mb-3" alt="">
+                        <img src="{% static 'imagenes/jp2.jpeg' %}" class="rounded-circle mb-3" width="150px">
                     <h3 class="card-title mb-3">Johannes Pérez</h3>
                     <p class="card-text">Python Developer Jr.</p>
                     <p class="card-text">Sigueme en:</p>

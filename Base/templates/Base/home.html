@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,8 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'Base/style.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>Venta y Permuta de Instrumentos Musicales</title>
 </head>
 <body>
@@ -93,11 +94,13 @@
                     <p class="lead my-4">
                       Quieres vender o permutar tu instrumento musical?
                     </p>
-                    <button class="btn btn-outline-primary btn-lg"><a href="{% url 'nuevo' %}">Agregalo acá:</a></button>
+                    <a href="{% url 'nuevo' %}"><button type="submit" class="btn btn-primary">Agregalo acá</button></a>
                 </div>
             </div>
         </div>
     </section>
+
+    <img src="" alt="">
    
     <br>
     <br>
