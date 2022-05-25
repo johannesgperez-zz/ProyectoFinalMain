@@ -2,27 +2,36 @@
 
 {% block content %}
 
-<div class="container">
+<section class="text-dark p-5 p-lg-0 pt-lg-5 text-center">
 
-<h1>Pedales</h1>
+<br>
 
+<div class="container text-center">
+    <h1>Pedales</h1>
 </div>
 
+<br>
+
 <div class="container">
-
-{% for pedal in pedales %}
-
-<ul>
-    <li>{{pedal.titulo}}</li>
-    <a href="{% url 'pedal' pedal.id %}">Ver</a>
-    {% if user.id == pedal.usuario.id %}
-    <a href="{% url 'pedal_editar' pedal.id %}">Editar</a>
-    <a href="{% url 'pedal_eliminar' pedal.id %}">Eliminar</a>
-    {% endif %}
-</ul>
-
-{% endfor %}
-
+    <div class="row">
+            {% for pedal in pedales %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{pedal.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                {{pedal.titulo}}
+                <a href="{% url 'pedal' pedal.id %}">Ver</a>
+                {% if user.id == pedal.usuario.id %}
+                <a href="{% url 'pedal_editar' pedal.id %}">Editar</a>
+                <a href="{% url 'pedal_eliminar' pedal.id %}">Eliminar</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </div>
-
+</section>
 {% endblock %}

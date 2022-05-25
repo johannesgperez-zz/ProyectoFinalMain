@@ -2,27 +2,36 @@
 
 {% block content %}
 
-<div class="container">
+<section class="text-dark p-5 p-lg-0 pt-lg-5 text-center">
 
-<h1>Teclados</h1>
+<br>
 
+<div class="container text-center">
+    <h1>Teclados</h1>
 </div>
 
+<br>
+
 <div class="container">
-
-{% for teclado in teclados %}
-
-<ul>
-    <li>{{teclado.titulo}}</li>
-    <a href="{% url 'teclado' teclado.id %}">Ver</a>
-    {% if user.id == teclado.usuario.id %}
-    <a href="{% url 'teclado_editar' teclado.id %}">Editar</a>
-    <a href="{% url 'teclado_eliminar' teclado.id %}">Eliminar</a>
-    {% endif %}
-</ul>
-
-{% endfor %}
-
+    <div class="row">
+            {% for teclado in teclados %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{teclado.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                {{teclado.titulo}}
+                <a href="{% url 'teclado' teclado.id %}">Ver</a>
+                {% if user.id == teclado.usuario.id %}
+                <a href="{% url 'teclado_editar' teclado.id %}">Editar</a>
+                <a href="{% url 'teclado_eliminar' teclado.id %}">Eliminar</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </div>
-
+</section>
 {% endblock %}

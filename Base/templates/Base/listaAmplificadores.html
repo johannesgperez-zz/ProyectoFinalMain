@@ -2,27 +2,36 @@
 
 {% block content %}
 
-<div class="container">
+<section class="text-dark p-5 p-lg-0 pt-lg-5 text-center">
 
-<h1>Amplificadores</h1>
+<br>
 
+<div class="container text-center">
+    <h1>Amplificadores</h1>
 </div>
 
+<br>
+
 <div class="container">
-
-{% for amplificador in amplificadores %}
-
-<ul>
-    <li>{{amplificador.titulo}}</li>
-    <a href="{% url 'amplificador' amplificador.id %}">Ver</a>
-    {% if user.id == amplificador.usuario.id %}
-    <a href="{% url 'amplificador_editar' amplificador.id %}">Editar</a>
-    <a href="{% url 'amplificador_eliminar' amplificador.id %}">Eliminar</a>
-    {% endif %}
-</ul>
-
-{% endfor %}
-
+    <div class="row">
+            {% for amplificador in amplificadores %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{amplificador.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                {{amplificador.titulo}}
+                <a href="{% url 'amplificador' amplificador.id %}">Ver</a>
+                {% if user.id == amplificador.usuario.id %}
+                <a href="{% url 'amplificador_editar' amplificador.id %}">Editar</a>
+                <a href="{% url 'amplificador_eliminar' amplificador.id %}">Eliminar</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </div>
-
+</section>
 {% endblock %}

@@ -2,29 +2,36 @@
 
 {% block content %}
 
-<div class="container">
+<section class="text-dark p-5 p-lg-0 pt-lg-5 text-center">
 
-<h1>Baterias</h1>
+<br>
 
+<div class="container text-center">
+    <h1>Baterias</h1>
 </div>
 
+<br>
+
 <div class="container">
-
-{% for bateria in baterias %}
-
-<ul>
-    <li>{{bateria.titulo}}</li>
-    <a href="{% url 'bateria' bateria.id %}">Ver</a>
-    {% if user.id == bateria.usuario.id %}
-    <a href="{% url 'bateria_editar' bateria.id %}">Editar</a>
-    <a href="{% url 'bateria_eliminar' bateria.id %}">Eliminar</a>
-    {% endif %}
-</ul>
-
-
-
-{% endfor %}
-
+    <div class="row">
+            {% for bateria in baterias %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{bateria.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                {{bajo.titulo}}
+                <a href="{% url 'bateria' bateria.id %}">Ver</a>
+                {% if user.id == bateria.usuario.id %}
+                <a href="{% url 'bateria_editar' bateria.id %}">Editar</a>
+                <a href="{% url 'bateria_eliminar' bateria.id %}">Eliminar</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </div>
-
+</section>
 {% endblock %}

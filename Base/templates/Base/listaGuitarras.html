@@ -2,26 +2,36 @@
 
 {% block content %}
 
-<div class="container">
+<section class="text-dark p-5 p-lg-0 pt-lg-5 text-center">
 
-<h1>Guitarras</h1>
+<br>
 
+<div class="container text-center">
+    <h1>Guitarras</h1>
 </div>
 
+<br>
+
 <div class="container">
-
-{% for guitarra in guitarras %}
-<ul>
-    <li>{{guitarra.titulo}}</li>
-    <a href="{% url 'guitarra' guitarra.id %}">Ver</a>
-    {% if user.id == guitarra.usuario.id %}
-        <a href="{% url 'guitarra_editar' guitarra.id %}">Editar</a>
-        <a href="{% url 'guitarra_eliminar' guitarra.id %}">Eliminar</a>
-    {% endif %}
-</ul>
-
-{% endfor %}
-
+    <div class="row">
+            {% for guitarra in guitarras %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{guitarra.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                {{guitarra.titulo}}
+                <a href="{% url 'guitarra' guitarra.id %}">Ver</a>
+                {% if user.id == guitarra.usuario.id %}
+                <a href="{% url 'guitarra_editar' guitarra.id %}">Editar</a>
+                <a href="{% url 'guitarra_eliminar' guitarra.id %}">Eliminar</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </div>
-
+</section>
 {% endblock %}
