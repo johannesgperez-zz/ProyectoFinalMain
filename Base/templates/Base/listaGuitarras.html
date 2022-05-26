@@ -2,8 +2,11 @@
 
 {% block content %}
 
-<section class="text-dark p-5 p-lg-0 pt-lg-5 text-center">
 
+
+
+
+<br>
 <br>
 
 <div class="container text-center">
@@ -11,7 +14,6 @@
 </div>
 
 <br>
-
 <div class="container">
     <div class="row">
             {% for guitarra in guitarras %}
@@ -19,10 +21,11 @@
                 <div class="card-body">
                 <img src="{{guitarra.imagenInstrumento.url}}" class="rounded-circle" width="100px">
                 {{guitarra.titulo}}
-                <a href="{% url 'guitarra' guitarra.id %}">Ver</a>
+                <a href="{% url 'guitarra' guitarra.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == guitarra.usuario.id %}
-                <a href="{% url 'guitarra_editar' guitarra.id %}">Editar</a>
-                <a href="{% url 'guitarra_eliminar' guitarra.id %}">Eliminar</a>
+                <a href="{% url 'guitarra_editar' guitarra.id %}"><i class="bi bi-pencil-fill"></i></a>
+                <a class="delete-link" href="{% url 'guitarra_eliminar' guitarra.id %}"><i class="bi bi-trash text-danger"></i></a>
+                <!-- <a href="{% url 'guitarra_eliminar' guitarra.id %}">Eliminar</a> -->
                 <br>
                 <br>
                 <br>
@@ -33,5 +36,5 @@
             {% endfor %}
     </div>
 </div>
-</section>
+
 {% endblock %}

@@ -2,20 +2,15 @@
 
 {% block content %}
 
-<section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
-    <div class="container">
-        <div class="d-sm-flex align-items-center justify-content-between">
-            <div>
-            </div>
-        </div>
-    </div>
-</section>
+<br>
+<br>
+<br>
 
-<div class="container">
+<div class="container text-center">
     <h1>Iniciar Sesión</h1>
 </div>
 
-<div class="container">
+<div class="container text-center">
     
         <!-- <form method="post">
             <div class="form-group">
@@ -24,9 +19,9 @@
             <button type="button" class="btn btn-primary">Login</button>
         </div>
         </form> -->
-        <div id="content-container" class="container p-none">
-            <div class="col-sm-4">
-                <form id="login-form" method="post">
+        <div class="container">
+            <div class="text-center">
+                <form id="login-form" style=" width: 50vw; margin-left : 15vw;" method="post">
                     {% csrf_token %}
                     <table class="table">
                         <tr>
@@ -56,5 +51,10 @@
     <br>
     <p>Aun no tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a></p>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}

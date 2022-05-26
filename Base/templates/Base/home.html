@@ -8,21 +8,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300&family=Nunito:wght@200&family=Poppins:wght@300&family=Quattrocento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Venta y Permuta de Instrumentos Musicales</title>
 </head>
 <body>
+  <img src="" alt="">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 fixed-top">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-2 fixed-top">
       <div class="container">
-        <a href="{% url 'home' %}" class="navbar-brand">INICIO</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
-              <ul class="navbar-nav ms-auto">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'home' %}"><span class="text-primary">INICIO</span></a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'guitarras' %}">Guitarras</a>
                 </li>
@@ -45,62 +49,68 @@
                   <a class="nav-link" href="{% url 'otros' %}">Otros</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'acerca_de_mi' %}">Acerca del Autor</a>
+                  <a class="nav-link" href="{% url 'acerca_de_mi' %}">Conóceme</a>
                 </li>
-              </ul>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
+                <div class="container"></div>
                 {% if request.user.is_authenticated %}
-              <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <strong><span style="color:white"> Hola {{request.user.first_name}}!</span></strong>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'editar_perfil' %}">Editar Perfil</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'logout' %}">Cerrar Sesión</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a href="{% url 'login' %}">Iniciar Sesión</a>
-              </li>
-              <li class="nav-item">
-                <a href="{% url 'registro' %}">Registrate</a>
-              </li>
-              </ul>
-            {% endif %}
+                <li class="nav-item">
+                  <a class="nav-justified" href="#"><span class="text-light"> Hola <strong>{{request.user.first_name}}</strong>!</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'editar_perfil' %}"><span class="text-primary">Perfil</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}"><span class="text-primary">Logout</span></a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}"><span class="text-primary">Login</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'registro' %}"><span class="text-primary">Registrate</span></a>
+                </li>          
+              {% endif %}
+           </ul>
           </div>    
       </div>     
   </nav>
       {% block content %}
 
     <!-- Inicio -->
+<br>
+<br>
+<br>
+<section id="home" class="text-dark p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+  <div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+            <h2>Bienvenido (a) a la <span class="text-primary">Venta y Permuta de Instrumentos Musicales</span></h2>
+        </div>
+    </div>
+</div>
 
-    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
-          <div class="container">
-              <div class="d-sm-flex align-items-center justify-content-between">
-                  <div>
-                      <h2>Bienvenido (a) a la <span class="text-warning">Venta y Permuta de Instrumentos Musicales</span></h2>
-                  </div>
-              </div>
-          </div>
-    </section>
+</section>
+
 
     <!-- Link Venta/Permuta Instrumento -->
 
-    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
-        <div class="container">
-            <div class="d-sm-flex align-items-center justify-content-between">
-                <div>
-                    <p class="lead my-4">
-                      Quieres vender o permutar tu instrumento musical?
-                    </p>
-                    <a href="{% url 'nuevo' %}"><button type="submit" class="btn btn-primary">Agregalo acá</button></a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+      <div class="container">
+          <div class="d-sm-flex align-items-center justify-content-between">
+              <div>
+                  <p class="lead my-4">
+                    Quieres vender o permutar tu instrumento musical?
+                  </p>
+                  <a href="{% url 'nuevo' %}"><button type="submit" class="btn btn-primary">Agregalo acá</button></a>
+              </div>
+          </div>
+      </div>
+  </section>
 
-    <img src="" alt="">
    
     <br>
     <br>
@@ -119,7 +129,7 @@
 
   <footer class="p-5 bg-dark text-white text-center position-relative">
       <div class="container">
-          <p class="lead">Copyright &copy; 2022 Johannes Pérez</p>
+          <p class="lead text-white">Copyright &copy; 2022 Johannes Pérez</p>
           <a href="" class="position-absolute bottom-0 end-0 p-5">
               <i class="bi bi-arrow-up-circle h1"></i>
           </a>

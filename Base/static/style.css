@@ -1,0 +1,18 @@
+body {
+    background-color: white;
+    font-family: 'Poppins', 'Nunito',  sans-serif;
+    padding-top: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+}
+
+p {
+    color: #363636;
+}
+
