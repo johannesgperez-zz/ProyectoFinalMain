@@ -17,9 +17,9 @@ Los usuarios pueden realizar las siguientes accciones:
 - Publicar instrumentos musicales
 - Visualizar instrumentos musicales publicados, los cuales están distribuidos en las secciones "Guitarras", "Bajos", "Pedales", "Amplificadores", "Teclados" y "Otros"
 - Comentar instrumentos musicales
-- Editar Perfil de Usuario
-- Cambio de Contraseña de Usuario
-- Logout
+- Editar el perfil de Usuario
+- Cambiar la contraseña de Usuario
+- Cerrar Sesión
 - Login en caso de haber cerrado sesión
 
 Nota: La opción de editar y eliminar instrumentos musicales está permitido solo para el autor de la publicación del instrumento.
