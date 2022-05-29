@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .models import Instrumento, Comentario
-from .forms import ActualizacionInstrumento, FormularioEdicion, FormularioNuevoInstrumento, FormularioRegistroUsuario, FormularioComentario
+from .forms import ActualizacionInstrumento, FormularioCambioPassword, FormularioEdicion, FormularioNuevoInstrumento, FormularioRegistroUsuario, FormularioComentario
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
@@ -50,7 +50,7 @@ class UsuarioEdicion(UpdateView):
         return self.request.user
 
 class CambioPassword(PasswordChangeView):
-    form_class = PasswordChangeForm
+    form_class = FormularioCambioPassword
     template_name = 'base/passwordCambio.html'
     success_url = reverse_lazy('password_exitoso')
 

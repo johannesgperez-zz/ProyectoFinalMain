@@ -15,17 +15,17 @@
 
 <br>
 
-<div class="container">
+<div class="container text-center">
     <div class="row">
             {% for pedal in pedales %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{pedal.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                <img src="{{pedal.imagenInstrumento.url}}" class="" width="100px">
                 {{pedal.titulo}}
-                <a href="{% url 'pedal' pedal.id %}">Ver</a>
+                <a href="{% url 'pedal' pedal.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == pedal.usuario.id %}
-                <a href="{% url 'pedal_editar' pedal.id %}">Editar</a>
-                <a href="{% url 'pedal_eliminar' pedal.id %}">Eliminar</a>
+                <a href="{% url 'pedal_editar' pedal.id %}"><i class="bi bi-pencil-fill"></i></a>
+                <a href="{% url 'pedal_eliminar' pedal.id %}"><i class="bi bi-trash text-danger"></i></a>
                 <br>
                 <br>
                 <br>

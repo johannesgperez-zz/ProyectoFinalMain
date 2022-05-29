@@ -15,17 +15,17 @@
 
 <br>
 
-<div class="container">
+<div class="container text-center">
     <div class="row">
             {% for amplificador in amplificadores %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{amplificador.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                <img src="{{amplificador.imagenInstrumento.url}}" class="" width="100px">
                 {{amplificador.titulo}}
-                <a href="{% url 'amplificador' amplificador.id %}">Ver</a>
+                <a href="{% url 'amplificador' amplificador.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == amplificador.usuario.id %}
-                <a href="{% url 'amplificador_editar' amplificador.id %}">Editar</a>
-                <a href="{% url 'amplificador_eliminar' amplificador.id %}">Eliminar</a>
+                <a href="{% url 'amplificador_editar' amplificador.id %}"><i class="bi bi-pencil-fill"></i></a>
+                <a href="{% url 'amplificador_eliminar' amplificador.id %}"><i class="bi bi-trash text-danger"></i></a>
                 <br>
                 <br>
                 <br>

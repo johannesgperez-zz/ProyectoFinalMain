@@ -15,17 +15,17 @@
 
 <br>
 
-<div class="container">
+<div class="container text-center">
     <div class="row">
             {% for bajo in bajos %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{bajo.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                <img src="{{bajo.imagenInstrumento.url}}" class="" width="100px">
                 {{bajo.titulo}}
-                <a href="{% url 'bajo' bajo.id %}">Ver</a>
+                <a href="{% url 'bajo' bajo.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == bajo.usuario.id %}
-                <a href="{% url 'bajo_editar' bajo.id %}">Editar</a>
-                <a href="{% url 'bajo_eliminar' bajo.id %}">Eliminar</a>
+                <a href="{% url 'bajo_editar' bajo.id %}"><i class="bi bi-pencil-fill"></i></a>
+                <a href="{% url 'bajo_eliminar' bajo.id %}"><i class="bi bi-trash text-danger"></i></a>
                 <br>
                 <br>
                 <br>

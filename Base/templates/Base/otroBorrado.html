@@ -4,10 +4,17 @@
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 {% if user.id == otro.usuario.id %}
 
-<div class="container">
+<div class="container text-center">
 
 <form method="post">{% csrf_token %}
     <h4>Estás seguro(a) que deseas borrar el artículo {{otro.marca}} {{otro.modelo}} ?</h4>
@@ -22,5 +29,13 @@
 <h4>No tienes acceso a esta pagina!</h4>
 </div>
 {% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% endblock %}

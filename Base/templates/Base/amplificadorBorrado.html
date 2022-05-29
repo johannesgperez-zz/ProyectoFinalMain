@@ -4,9 +4,16 @@
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 {% if user.id == amplificador.usuario.id %}
-<div class="container">
+<div class="container text-center">
 
 <form method="post">{% csrf_token %}
     Estás seguro que deseas borrar el amplificador {{amplificador.marca}} {{amplificador.modelo}} ?
@@ -21,5 +28,12 @@
 <h4>No tienes acceso a esta pagina!</h4>
 </div>
 {% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% endblock %}

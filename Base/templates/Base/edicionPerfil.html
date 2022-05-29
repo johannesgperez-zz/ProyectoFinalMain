@@ -4,22 +4,29 @@
 
 <br>
 <br>
+<br>
 
-<div class="container">
+<div class="container text-center">
     <h1>Editar Perfil</h1>
 </div>
 
 <div class="container">
 
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
+<form id="login-form" style=" width: 50vw; margin-left : 20vw;" method="post" enctype="multipart/form-data">{% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <br>
+    <div class="container text-center">
+    <button type="submit" class="btn btn-primary text-center">Guardar</button>
+    </div>
 </form>
-<br>
-<p>Necesitas cambiar la contraseña?<a href="{% url 'cambiar_password' %}">Haz click acá</a></p>
-
-
-
 </div>
+<br>
 
+<p class="text-center">Necesitas cambiar la contraseña?<a href="{% url 'cambiar_password' %}"> Haz click acá</a></p>
+
+<br>
+<br>
+<br>
+<br>
 {% endblock %}
+

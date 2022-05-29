@@ -14,12 +14,12 @@
 </div>
 
 <br>
-<div class="container">
+<div class="container text-center">
     <div class="row">
             {% for guitarra in guitarras %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{guitarra.imagenInstrumento.url}}" class="rounded-circle" width="100px">
+                <img src="{{guitarra.imagenInstrumento.url}}" class="" width="100px">
                 {{guitarra.titulo}}
                 <a href="{% url 'guitarra' guitarra.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == guitarra.usuario.id %}

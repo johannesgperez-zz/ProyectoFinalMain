@@ -4,9 +4,16 @@
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 {% if user.id == bateria.usuario.id %}
-<div class="container">
+<div class="container text-center">
 
 <form method="post">{% csrf_token %}
     <h4>Estás seguro(a) que deseas borrar la bateria {{bateria.marca}} {{bateria.modelo}} ?</h4>
@@ -17,5 +24,12 @@
 
 </div>
 {% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% endblock %}
