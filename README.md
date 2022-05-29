@@ -22,7 +22,7 @@ Los usuarios pueden realizar las siguientes accciones:
 - Cerrar Sesión
 - Login en caso de haber cerrado sesión
 
-Nota: La opción de editar y eliminar instrumentos musicales está permitido solo para el autor de la publicación del instrumento.
+Nota: La opción de editar y eliminar instrumentos musicales solo le está permitido al autor de la publicación del instrumento.
 
 ## Tecnología Utilizada
 
@@ -35,6 +35,14 @@ Nota: La opción de editar y eliminar instrumentos musicales está permitido sol
 ##### Back-End
 - Python 3.10.4
 - Django 4.0
+
+## Pruebas Realizadas
+
+Ver archivo titulado "Pruebas Proyecto Python CH.xlsx" el cual se encuentra en el presente repositorio https://github.com/johannesgperez/ProyectoFinalMain.git
+
+## Video Demostración
+
+
 
 
 
