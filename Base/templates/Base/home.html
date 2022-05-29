@@ -57,22 +57,32 @@
                 <div class="container"></div>
                 <div class="container"></div>
                 {% if request.user.is_authenticated %}
+                <div class="container">
                 <li class="nav-item">
-                  <a class="nav-justified" href="#"><span class="text-light"> Hola <strong>{{request.user.first_name}}</strong>!</span></a>
+                  <span class="text-light"> Hola <strong>{{request.user.first_name}}</strong>!</span>
                 </li>
+                </div>
+                <div class="container">
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'editar_perfil' %}"><span class="text-primary">Perfil</span></a>
                 </li>
+                </div>
+                <div class="container">
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout' %}"><span class="text-primary">Logout</span></a>
                 </li>
+                </div>
                 {% else %}
+                <div class="container">
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'login' %}"><span class="text-primary">Login</span></a>
                 </li>
+                </div>
+                <div class="container">
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'registro' %}"><span class="text-primary">Registrate</span></a>
-                </li>          
+                </li> 
+                </div>         
               {% endif %}
            </ul>
           </div>    

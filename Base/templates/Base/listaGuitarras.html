@@ -24,8 +24,7 @@
                 <a href="{% url 'guitarra' guitarra.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == guitarra.usuario.id %}
                 <a href="{% url 'guitarra_editar' guitarra.id %}"><i class="bi bi-pencil-fill"></i></a>
-                <a class="delete-link" href="{% url 'guitarra_eliminar' guitarra.id %}"><i class="bi bi-trash text-danger"></i></a>
-                <!-- <a href="{% url 'guitarra_eliminar' guitarra.id %}">Eliminar</a> -->
+                <a href="{% url 'guitarra_eliminar' guitarra.id %}"><i class="bi bi-trash text-danger"></i></a>
                 <br>
                 <br>
                 <br>
